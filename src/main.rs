@@ -71,19 +71,19 @@ fn main() {
             }
         }
 
+        if check_board(&board) {
+            println!(
+                "Game over! {}  wins!",
+                if current_turn % 2 == 0 { fire } else { water }
+            );
+            break;
+        }
+
         if !board.contains(&' ') {
             println!("Game over! It's a tie!");
             break;
         }
 
         current_turn += 1;
-
-        if check_board(&board) {
-            println!(
-                "Game over! {}  wins!",
-                if current_turn % 2 == 0 { water } else { fire }
-            );
-            break;
-        }
     }
 }
